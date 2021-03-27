@@ -104,6 +104,7 @@ public class Main {
 //        Pattern p = Pattern.compile("^\\w{3,16}$");
         Pattern p = Pattern.compile("^[a-z0-9_]{3,16}$");
         Matcher m = p.matcher(userNameString);
+//        Matcher m = p.matcher(userNameString, Pattern.CASE_INSENSITIVE);
         return m.matches();
     }
 
