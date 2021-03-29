@@ -25,16 +25,16 @@ import java.util.regex.Pattern;
 
   Квантификаторы
 
-    +     - Одно или более
-    *     - Ноль или более
-    ?     - Ноль или одно
+    +     - Одно или более {1,}
+    *     - Ноль или более {,}
+    ?     - Ноль или одно {0,1}
     {n}   - Ровно n раз
     {m,n} - От m до n включительно
     {m,}  - Не менее m
     {,n}  - Не более n
 
     Символьные классы
-    []
+    [vvvj8787hkjhl]+
 
     Москва
     москва
@@ -55,6 +55,10 @@ import java.util.regex.Pattern;
     IP - подумать над регулярным выражением для проверки
     127.0.0.1
     192.83.20.1
+
+    [a-zA-Z0-9_.-]+@[a-zA-Z0-9_.-]+.[a-z]{2,3}
+    [0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}
+
  */
 
 
@@ -62,15 +66,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        userNamesCheck();
-        deleteDuplicates();
+
+        String str = "станция \"Молодежная\"";
+        String str1 = "C:\\Projects";
+        String regExp = "[vvvj8787hkjhl]+";
+
+//        userNamesCheck();
+//        deleteDuplicates();
 
         // Входные данные для задачи про перевод из см в м
-        String testString = "Длина доски 1 равна 30см, длина другой доски - "
-                + "55 см, а еще одной 56.476 см. И еще есть 45,7 см.";
-
+//        String testString = "Длина доски 1 равна 30см, длина другой доски - "
+//                + "55 см, а еще одной 56.476 см. И еще есть 45,7 см.";
         regExpTester();
-
     }
 
     /**
@@ -102,9 +109,9 @@ public class Main {
 //        Pattern p = Pattern.compile("^[a-z0-9_]+ - [a-z0-9_]{3,16} - [a-z0-9_]{3,}$");
 //        Pattern p1 = Pattern.compile("^abc-[0-9]{3}$");
 //        Pattern p = Pattern.compile("^\\w{3,16}$");
-        Pattern p = Pattern.compile("^[a-z0-9_]{3,16}$");
-        Matcher m = p.matcher(userNameString);
+        Pattern p = Pattern.compile("^[a-z0-9_]{3,7}$");
 //        Matcher m = p.matcher(userNameString, Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(userNameString);
         return m.matches();
     }
 
@@ -144,7 +151,6 @@ public class Main {
         System.out.println(result);
     }
 
-
     /**
      * Тестер регулярных выражений
      */
@@ -174,7 +180,7 @@ public class Main {
                     }
                 found = true;
             }
-            if(!found){
+            if(!found) {
                 System.out.println("Совпадения не найдены.");
             }
             System.out.println("Введите \"exit\" для выхода: ");
