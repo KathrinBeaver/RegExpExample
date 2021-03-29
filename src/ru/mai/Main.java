@@ -109,8 +109,8 @@ public class Main {
 //        Pattern p = Pattern.compile("^[a-z0-9_]+ - [a-z0-9_]{3,16} - [a-z0-9_]{3,}$");
 //        Pattern p1 = Pattern.compile("^abc-[0-9]{3}$");
 //        Pattern p = Pattern.compile("^\\w{3,16}$");
-        Pattern p = Pattern.compile("^[a-z0-9_]{3,7}$");
-//        Matcher m = p.matcher(userNameString, Pattern.CASE_INSENSITIVE);
+//        Pattern p = Pattern.compile("^[a-z0-9_]{3,7}$");
+        Pattern p = Pattern.compile("^[a-z0-9_]{3,7}$", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(userNameString);
         return m.matches();
     }
